@@ -1,46 +1,22 @@
-import React,{useState} from 'react'
-import { StyleSheet,Pressable ,FlatList,Button,SafeAreaView} from 'react-native';
-import Goal from './components/Goal';
-import GoalInput from './components/GoalInput';
+import React from 'react'
+import { View, StyleSheet } from 'react-native'
+import Header from './components/Header'
+import Start from './Screens/Start'
 
-
-export default function App() {
-  const [arr,setArr]=useState([])
-  const [show,setShow]=useState(false)
-
-  const add=(x)=>{
-      setArr([...arr,x])
-      setShow(false)
-  }
-
-  const removeArr=(i)=>{
-    setArr(arr.filter((x,index)=>index!=i))
-  }
-
-  // const cancel()
-
+const App = () => {
   return (
-    <SafeAreaView style={styles.container}>
-      
-      <Button title="Add Goal" onPress={()=>setShow(!show)}/>
-      <GoalInput add={add} visible={show} cancel={()=>setShow(false)}/>
-
-    <FlatList 
-      data={arr}
-      keyExtractor={(x,index)=>index}
-      renderItem={(x)=>(<Goal list={x.item} id={x.index} delete={removeArr}/> )}
-      />
-
-    </SafeAreaView>
-  );
+    <View style={styles.screen}>
+      <Header />
+      <Start />
+    </View>
+  )
 }
 
 const styles = StyleSheet.create({
-  container: {
+  screen: {
     flex: 1,
-    padding:50,
-    backgroundColor: 'white',
-    justifyContent: 'center',
-  },
- 
-});
+    backgroundColor: '#48cae4'
+  }
+})
+
+export default App
