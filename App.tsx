@@ -1,28 +1,3 @@
-import 'react-native-gesture-handler';
-import React from 'react'
-import Navs from './src/navigation/Navs';
-import { AuthContextProvider } from './src/context/AuthContext';
+import App from "./src";
 
-
-
-
-const App = () => {
-
-
-
-  return (
-
-    <AuthContextProvider >
-      <Navs />
-    </AuthContextProvider>
- 
-  )
-}
-
-export default App
-
-
-
-
-
-
+export default App;
